@@ -1,0 +1,132 @@
+React jegyzet Udemy:
+
+Változók:
+
+	- Változó megadásnál "var" helyett "let" és "const".
+	- A "const" a jobb, mivel nem írható felül az értéke, 
+		ha esetleg mégis ezt tenném hibát dob, könnyyebb megtalálni.
+
+Arrow Function:
+
+	- Rövidebb mint a rendes függvény, egyszerűbben lehet fele foglamazni.
+	- PL: 
+
+		const myfunc = num => num * 2;
+
+		- Mindíg "const" kulcsszót használok.
+		- Ha nincs paraméter, üres zárójel --> ().
+		- Ha egy paraméter van, elhagyható a zárójel.
+		- Ha több paraméter van, kell a zárójel. 
+
+Export & Import:
+
+	- Két féle export van:
+
+		export default name; (fájl neve) --> import "bármiNév" from '\name.js';
+
+		export const baseDate = 10; --> import {data} from '\name.js';
+										import {data as Data} from ..;
+										import * as Data from ..;
+
+	- Tudunk éréket és függvény is exportálni, ebben az esetben a felső 
+		szabályokat kell használni.
+	- Ha default exportot csinálunk, bárhogy elnevezhetjük és úgy használhatjuk
+		tovább.
+
+Class:
+
+	- Az objektumok tervrajza.
+	- Tartalmaz propertyket és metódusokat.
+	- Declarálás a konstruktoron keresztül.
+	- Öröklődés az "extends" kulcsszóval.
+	- Ha van öröklődés, a "super()" szülő konstruktort is meg kell hívni,
+		a gyerek konstruktorában.
+	- Példányosítással válnak tényleges objektummá.
+
+	- PL.:
+
+		class Human {
+			constructor() {
+				this.gender = 'male'
+			}
+
+			printGender() {
+				console.log(this.gender);
+			}
+		}
+
+		class Person extends Human {
+			constructor() {
+				super();
+				this.name = "max";
+				this.gender = "female";
+			}
+		}
+
+ES7 JavaScript:
+	
+	- this.propertyName = "value" | helyett | propertyName = "value" 
+		+ nincs constructor(), direktbe van megadva.
+	- myMethod () {...} | helyett | ArrowFunction
+
+Spread & Rest operators (...) :
+
+	- Jelölése "...".
+	- Spread:
+		array illetve objektumok összefésülésére használják:
+
+			const newArray = [...oldArray, 5, 6];
+				-minden elemet kivesz a régi "oldArray"-ból.
+				- Ha csak [oldArray, 1, 2]; --> [[x, y], 1, 2]
+				- Ha [...oldArray, 1, 2]; --> [x, y, 1, 2]
+
+			const newObject = {...oldObject, newProperty: 5}
+				-lemásoltam a régi objektumot, és hozzáadtam egy új propertyt.
+
+	- Rest:
+		az összes paramétert egy array.ként tárolja el nekünk
+
+			const filter = (...args) => agrs.filter();
+
+			-nincs előre megadva a paraméter szám.
+
+Destruktúrálás (Destructuring):
+
+	- Array PL.:
+
+		const numbers = [1, 2, 3];
+		[num1, , num3] = numbers;
+		console.log(num1, num3); // 1, 3
+	
+	- Object PL.:
+
+		{name} = {name: "max", age: 28}
+		console.log(name); // max
+		console.log(age); // undefined
+
+Referencia és primitív típusok:
+
+	- Spread-ot kell használni akkor, ha egy objektumot másolni akarok,	
+		értékekkel együtt, és nem csak referenciaként akarok mutatni,
+		a memóriacimére.
+
+	- PL.:
+
+		const person {
+			name = "max";
+		}
+
+		const otherPerson {
+			...person;                 !!!
+		}
+
+Array functions:
+
+	const numbers = [1, 2, 3]; // [1, 2, 3]
+
+	- Minden szám duplájával akarok visszatrni --> .map() használata, 
+		minden egyes elemre elvégzi a feltételt.
+
+	const doubleArray = numbers.map((num) = > { // [2, 4, 6]
+		return num * 2;
+	});
