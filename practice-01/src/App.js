@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 
 import "./index.css";
 import InputHandler from "./components/Input/InputHandler";
@@ -14,10 +14,10 @@ const App = () => {
   };
 
   return (
-    <div>
+    <Fragment>
       <InputHandler dataHandler={dataHandlerFunc} />
       <ListedItems data={datas} />
-    </div>
+    </Fragment>
   );
 };
 
