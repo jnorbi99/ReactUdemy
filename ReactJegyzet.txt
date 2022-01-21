@@ -200,6 +200,8 @@ Props:
 			amount={list[0].amount}
 		></Something>
 
+9.
+
 Fragment:
 
 	The Fragment is a wrapping component, you can use that instead of wrapper component, ot the wrapper <div>
@@ -214,7 +216,22 @@ Refs:
 
 Uncontrolled vs Controller Components:
 
-	In a component, where we have input fields, and we read some values from the user --> If we log every keystroke, and save the value to the state, and we feed back to the user --> it is a Controller Component.
+	In a component, where we have input fields, and we read some values from the user --> If we log every keystroke, and save the value to the state, and we feed back to the user --> it is a Controller Component. The Data is handeled by React.
 
-	If we use Refs, in this situation --> it is an Uncontrolled Component.
+	If we use Refs, in this situation --> it is an Uncontrolled Component. The data is handeled by DOM.
 
+
+10. 
+
+Effects:
+
+	When you want to use something in the background, what is not for the user, you need the use (Side)Effects.
+	It has 2 argument:
+	
+	useEffect(func,[dependencie]);
+
+	The function in the useEffect method, always rerun, when the dependencie value is changed.
+
+Reducers:
+
+Context API:
