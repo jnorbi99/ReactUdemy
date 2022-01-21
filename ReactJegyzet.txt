@@ -130,3 +130,91 @@ Array functions:
 	const doubleArray = numbers.map((num) = > { // [2, 4, 6]
 		return num * 2;
 	});
+
+
+React project létrehozása:
+
+	1. Node Js --> latest version
+	2. npx create-react-app "name"
+	3. cd "name"
+	4. npm start ! 
+
+	5. Ha letöltött verziót használsz, (mivel nincsenek feltöltve a node_module-ok) --> npm install --> npm start 
+
+Createing a Component:
+
+	The react component is a Javascript function. 
+	So you need to define a function with the same name of the containing js file. The file name, the function name, and each subword are begin a capital letter.
+	The function includes a return state, where you can define the JSX code. 
+
+	Then you need export the function, because you want to use it in the other file. 
+
+		export default "function name"
+
+	In the file, where you want to use this compontent, you have to import at first. 
+
+		import "CompName" from "path";
+
+	After it, you can refer with the compName attribute. You have to use this syntax:
+
+		<CompName></CompName>
+
+	If you dont need that, you could use the self closing tag:
+
+		<CompName />
+
+
+CSS inserting:
+
+	If you want to create or import a css file, you need to do this:
+
+		import "path";
+
+	Then, you have to use the "className" keyword. 
+	You can find the value of the className in the css file.
+
+Dynamic data outputting instead of hardcodeing:
+
+	You do this method, because you want to write reuseable codes. Store the values in variables and then you can refer with this:
+
+		const vari = 289;
+
+		<h2>{vari}</h2>
+
+	If you want to outputting an object, you need to use the .toISOString() function.
+
+Props:
+
+	The React parameters called props. With props, you can pass data between components. The HTML tags can have attributes. Then our custom components can also have attributes too. You need to use only one parameter in the function.
+
+		function Something(props) {};
+
+	Then you can refer with this:
+
+		<h2>{props.attributeName}</h2>
+
+	When you use the component, you have to define this:
+
+		<Something
+			title="xy"
+			amount={list[0].amount}
+		></Something>
+
+Fragment:
+
+	The Fragment is a wrapping component, you can use that instead of wrapper component, ot the wrapper <div>
+
+Portals:
+
+	We use it at the ErrorModal. When you want to render this ErrodModal, outside of the other components, you need to set a destination (index.js/in body), and you can render it somewhere else, regardless where you wrote it.
+
+Refs:
+
+	We use Refs, when we read some input from the user. When you dont want to change these values, you dont need to use the States. The Refs are shorter, and you can manipulate it directly. It is more useful, than you use States. The Refs are do not controlled by the React, we use the regular dom API, for setting the value.
+
+Uncontrolled vs Controller Components:
+
+	In a component, where we have input fields, and we read some values from the user --> If we log every keystroke, and save the value to the state, and we feed back to the user --> it is a Controller Component.
+
+	If we use Refs, in this situation --> it is an Uncontrolled Component.
+
