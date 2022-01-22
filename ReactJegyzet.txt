@@ -232,6 +232,45 @@ Effects:
 
 	The function in the useEffect method, always rerun, when the dependencie value is changed.
 
+	In general we use it with props and states.
+
 Reducers:
 
+	We use the reducers if we have a lot of state, and if the some state have a connection. For example, when you log the userinput, and you want to validate it. In general we use 2 useState here. Instead this we can use 1 useReducer. It is more powerful than useState, but it is not necessary always.
+	The build up is here:
+
+	const [nameState, dispastchProp] = useReducer(triggeredFunc,
+	initialdata);
+
+	the dispatch will trigger the trigger func, where you can update your state properties. The 'nameState' has more than one property. The Reducer is an overdosed form of useState.
+
 Context API:
+
+	If you want to avoid the prop chain (if you use some state, in some component, and then you want to use it somewhere else, you need to lift the state up. When the project are big, the lifting up is so long, and the state go through of so many component. These components are dont want to use it.). Instead this example, we can use a storage. You can change the stored value as a Provider, and you can use the value as a Consumer. You need to wrap the jsx, where you want to use it.
+
+		1. You need to define the Context.
+		2. You have to know, where you want to use it. 
+		3. In the component, where you want to change the value, use the --> 
+
+			<MyContext.Provider value={{
+				myProp: someState
+			}}>
+				"OTHER JSX CODES"
+			</MyContext.Provider>
+
+		4. in the component, where you want to use the value -->
+
+			<MyContext.Consumer>
+			{(ctx) => {
+				"OTHER JSX CODE"
+				ctx.myProp <-- the using
+			}}
+			</MyContext.Consumer>
+
+			More elegant way to use ContextHook, instead the 4. {(ctx) => ...}
+
+			const ctx = useContext(MyContext); <-- in the listener component
+
+	When your child component use directly his parents states or functions, you dont need to do this Hook!!!
+
+	The Context are not opztimized when youre state upadted every second. When you use to login logout, it is ok.
