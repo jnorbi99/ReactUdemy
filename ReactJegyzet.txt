@@ -274,3 +274,6 @@ Context API:
 	When your child component use directly his parents states or functions, you dont need to do this Hook!!!
 
 	The Context are not opztimized when youre state upadted every second. When you use to login logout, it is ok.
+
+
+
