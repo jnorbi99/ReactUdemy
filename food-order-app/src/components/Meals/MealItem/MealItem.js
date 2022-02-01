@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
+import CartContext from "../../../store/cart-context";
 
 import classes from "./MealItem.module.css";
 import MealItemForm from "./MealItemForm";
 
 const MealItem = React.forwardRef((props, ref) => {
   const price = `$${props.price.toFixed(2)}`;
+  const cartContext = useContext(CartContext);
+
+  const createAnItem = (choosedAmount) => {
+    const anItem = {
+      id: props.id,
+      name: props.name,
+      price: props.price,
+      amount: choosedAmount,
+    };
+
+    cartContext.addItem(anItem);
+  };
 
   return (
     <li className={classes.meal}>
@@ -14,7 +27,7 @@ const MealItem = React.forwardRef((props, ref) => {
         <div className={classes.price}>{price}</div>
       </div>
       <div>
-        <MealItemForm id={props.id}/>
+        <MealItemForm onChange={createAnItem} />
       </div>
     </li>
   );
