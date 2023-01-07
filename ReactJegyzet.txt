@@ -275,5 +275,28 @@ Context API:
 
 	The Context are not opztimized when youre state upadted every second. When you use to login logout, it is ok.
 
+Difference between react-router v5 - v6:
 
+	<Switch /> : Swicth responsible for display only one Route at the same time. In the v6, it doesn't exist.
+				 We use <Routes /> instead.
+	
+	<Route /> : The way how we define Route-s is also changed. We have to use the new dynamic element, where we can add our
+				Component, instead of we add it to it's child. For example: <Route path='/welcome' element={<Welcome />} />
 
+	exact : If we wanted to check the exact path in the v5, we had to use 'exact' keyword. In the v6, the internal logic has changed,
+			We don't have to use the 'exact' keyword. It does automatically.
+
+	<NavLink /> && <Link /> : In the v5, we had a prop activeClassName. That was the logic behind the active css application. In the v6,
+							  it's eliminated. We have to insert inline style. The old className works a bit different now. We can pass
+							  an arrow function like this: classname={(navData)=> navData.isActive ? classes.active : ''} 
+
+	<Redirect /> : The Redirect doesn't exist anymore in the v6. We have to use <Navigate /> -> push the new page instead replacing it.
+				   Replace it: <Navigate replace />
+
+	nested routes: In the v6 we dont have it anymore. We have to wrap our nested routes in the <Routes /> element. Because the child path
+				is relative now, we have to define in the parent element the path={'/welcome/*'}, in the child element, we only have to define 
+				the differences between those: path={'new-user'}. Links and routes are relative when we use them nested.
+	
+	useHistory() : In the v6 it doesn't exist anymore, we have useNavigate instead.
+
+	<Prompt /> : In the v6, you have to implement your own logic. 
